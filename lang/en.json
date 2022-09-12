@@ -1,0 +1,14 @@
+{
+  "I0B7AG": {
+    "defaultMessage": "Hello, World!",
+    "description": "Index Page: Content"
+  },
+  "Lg2S9x": {
+    "defaultMessage": "React Intl Next.js Example",
+    "description": "Default document title"
+  },
+  "WIATrC": {
+    "defaultMessage": "This page is powered by Next.js",
+    "description": "Default document description"
+  }
+}
