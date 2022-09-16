@@ -16,8 +16,6 @@ import TemplateList from 'data/TemplateList'
 const drawerWidth = 75
 const iconsColor = 'gray'
 const iconsSelectedColor = '#fff'
-const textMenuStyle = { fontSize: '0.8rem', color: iconsColor }
-const textMenuSelectedStyle = { fontSize: '0.8rem', color: iconsSelectedColor }
 
 const ListItemIcon = styled(MuiListItemIcon)({
   width: 24,
@@ -31,7 +29,7 @@ const MENU = {
   TEXT: 'TEXT',
 }
 
-const paddingTop = '64px'
+const marginTop = '64px'
 
 const ListItemButton = styled(MuiListItemButton)({
   flexDirection: 'column',
@@ -48,8 +46,7 @@ export default function MiniDrawer() {
         anchor="left"
         sx={{
           '& .MuiDrawer-paperAnchorDockedLeft': {
-            backgroundColor: 'black',
-            paddingTop,
+            marginTop,
           },
         }}
       >
@@ -57,24 +54,12 @@ export default function MiniDrawer() {
           <ListItem
             onClick={() => setMenu(MENU.TEMPLATE)}
             selected={menu === MENU.TEMPLATE}
-            style={{
-              padding: 0,
-              backgroundColor: menu === MENU.TEMPLATE ? '#424242' : 'black',
-            }}
           >
             <ListItemButton>
               <ListItemIcon>
-                <GridOnIcon
-                  style={{
-                    color:
-                      menu === MENU.TEMPLATE ? iconsSelectedColor : iconsColor,
-                  }}
-                />
+                <GridOnIcon />
               </ListItemIcon>
               <ListItemText
-                primaryTypographyProps={
-                  menu === MENU.TEMPLATE ? textMenuSelectedStyle : textMenuStyle
-                }
                 primary={intl.formatMessage({
                   defaultMessage: 'Templates',
                   description: 'Sidebar: menu item',
@@ -85,24 +70,12 @@ export default function MiniDrawer() {
           <ListItem
             onClick={() => setMenu(MENU.IMAGES)}
             selected={menu === MENU.IMAGES}
-            style={{
-              padding: 0,
-              backgroundColor: menu === MENU.IMAGES ? '#424242' : 'black',
-            }}
           >
             <ListItemButton>
               <ListItemIcon>
-                <PhotoLibraryIcon
-                  style={{
-                    color:
-                      menu === MENU.IMAGES ? iconsSelectedColor : iconsColor,
-                  }}
-                />
+                <PhotoLibraryIcon />
               </ListItemIcon>{' '}
               <ListItemText
-                primaryTypographyProps={
-                  menu === MENU.IMAGES ? textMenuSelectedStyle : textMenuStyle
-                }
                 primary={intl.formatMessage({
                   defaultMessage: 'Images',
                   description: 'Sidebar: menu item',
@@ -117,8 +90,14 @@ export default function MiniDrawer() {
           >
             <ListItemButton>
               <ListItemIcon>
-                <TextFieldsIcon style={{ color: iconsColor }} />
-              </ListItemIcon>
+                <TextFieldsIcon />
+              </ListItemIcon>{' '}
+              <ListItemText
+                primary={intl.formatMessage({
+                  defaultMessage: 'Text',
+                  description: 'Sidebar: menu item',
+                })}
+              />
             </ListItemButton>
           </ListItem>
         </List>
@@ -130,8 +109,7 @@ export default function MiniDrawer() {
           sx={{
             '& .MuiDrawer-paperAnchorDockedLeft': {
               left: drawerWidth,
-              backgroundColor: '#424242',
-              paddingTop,
+              marginTop,
             },
           }}
         >
@@ -145,8 +123,7 @@ export default function MiniDrawer() {
           sx={{
             '& .MuiDrawer-paperAnchorDockedLeft': {
               left: drawerWidth,
-              backgroundColor: '#424242',
-              paddingTop,
+              marginTop,
             },
           }}
         >

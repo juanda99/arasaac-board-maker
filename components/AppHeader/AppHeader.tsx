@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
+import { FormattedMessage } from 'react-intl'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { useRouter } from 'next/router'
 import { useTheme } from '@mui/material/styles'
@@ -16,6 +16,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7'
 
 import { languages } from 'app-config'
 import { ColorModeContext } from 'pages/_app'
+import Logo from './Logo'
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true)
@@ -48,7 +49,7 @@ export default function MenuAppBar() {
   console.log(theme, 'theme')
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ zIndex: 1300 }}>
+      <AppBar position="static" elevation={0}>
         <Toolbar>
           <IconButton
             size="large"
@@ -57,10 +58,13 @@ export default function MenuAppBar() {
             aria-label="menu"
             sx={{ mr: 2, zIndex: 0 }}
           >
-            <MenuIcon />
+            <Logo />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            <FormattedMessage
+              defaultMessage="Board maker"
+              description="AppHeader: Title"
+            />
           </Typography>
           {auth && (
             <div>
